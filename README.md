@@ -18,7 +18,7 @@ Dans le dossier IPSW, il y aura 3 fichiers dmg, celui des rootfs est le plus lou
 
 Le programme va ensuite travailler tout seul.
 
-Si vous souhaitez modifier les rootfs (ex : supprimer setup.app -ASR n'acceptera pas le firmware sans exploit BootROM-) vous pouvez utiliser TransMac.
+Si vous souhaitez modifier les rootfs (ex : supprimer setup.app -ASR n'acceptera pas le firmware sans exploit BootROM) vous pouvez utiliser TransMac.
 
 ###Decryptage du kernelcache
 
