@@ -1,5 +1,8 @@
 #Decrypt0r
 
+Télécharger ici https://github.com/matteyeux/Decrypt0r/releases/download/Decrypt0r/Decrypt0r.zip
+
+
 Extrat0r est un outil simple qui permet de decrypter les rootfs et le kernelcache des firmwares IPSW d'iOS.
 Vous pouvez executer le programme en double cliquant sur l'executable ou directement via une invite de commande.
 
