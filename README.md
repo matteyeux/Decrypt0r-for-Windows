@@ -23,6 +23,13 @@ Le programme va ensuite travailler tout seul.
 
 Si vous souhaitez modifier les rootfs (ex : supprimer setup.app -ASR n'acceptera pas le firmware sans exploit BootROM) vous pouvez utiliser TransMac.
 
+###Encryptage des rootfs et création d'un Custom Fimware
+
+Vous pouvez maintenant créer votre propre Custom Fimware.
+Downgrade toujours impossible sans SHSHs, sur les appareils qui n'ont pas d'exploit BootROM.
+Donc cette fonction est inutile ? 
+Oui, mais ça peut toujours servir.
+
 ###Decryptage du kernelcache
 
 Pour decrypter le kernelcache il faut que vous le copiez à la racine du dossier puis vous executez le programme.
@@ -39,6 +46,7 @@ Vous pourrez ensuite faire ce que vous voulez avec.
 - Ajouter une version pour GNU/Linux et OS X
 - Rendre Open Source mon code
 - Cleaner mon code
+- Traduire en anglais
 - Rendre le programme plus simple d'utilisation
 
 
@@ -51,5 +59,6 @@ Pour ce petit outil j'ai utilisé :
 
 - xpwn developpé par Planetbeing https://github.com/planetbeing/xpwn
 - dmg.exe (Aucune idée de comment je l'ai eu).
+- 7zip.exe (developpé par Igor Pavlov)
 
 Pour plus d'informations contactez-moi sur Twitter : matteyeux.
