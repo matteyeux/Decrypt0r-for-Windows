@@ -1,5 +1,7 @@
 #Decrypt0r
 
+Update soon
+
 Télécharger ici https://github.com/matteyeux/Decrypt0r/releases/download/Decrypt0r/Decrypt0r.zip
 
 
