@@ -1,6 +1,5 @@
 #Decrypt0r
 
-<<<<<<< HEAD
 Decrypt0r is a utility which help you to decrypt all the iOS firmware components.
 
 ###Rootfs decrypting
