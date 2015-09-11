@@ -1,5 +1,6 @@
 #Decrypt0r
-
+WINDOWS ONLY
+Don't want to dev a Linux/OS X version... lol
 Decrypt0r is a utility which help you to decrypt all the iOS firmware components. <br>
 
 ###Rootfs decrypting
