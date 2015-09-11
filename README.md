@@ -46,5 +46,4 @@ For this tool I used: <br>
 - dmg.exe (No idea how I got it, if you know where is the source code, contact me). <br>
 - 7zip.exe (developed by Igor Pavlov) <br>
 
-For more information contact me on Twitter: matteyeux <br>
->>>>>>> origin/master
+For more information contact me on Twitter: [@matteyeux](https://twitter.com/matteyeux) <br>
