@@ -31,7 +31,6 @@ The first one to add is the largest, and the second one is the iv key (the small
 
 ## TODO
 
-- Add a version for GNU/Linux and OS X <br>
 - Clean my code <br>
 
 ## Credits
