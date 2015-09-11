@@ -1,64 +1,48 @@
 #Decrypt0r
 
-Télécharger ici https://github.com/matteyeux/Decrypt0r/releases/download/Decrypt0r/Decrypt0r.zip
+Decrypt0r is a utility which help you to decrypt all the iOS firmware components.
 
+###Rootfs decrypting
 
-Extrat0r est un outil simple qui permet de decrypter les rootfs et le kernelcache des firmwares IPSW d'iOS.
-Vous pouvez executer le programme en double cliquant sur l'executable ou directement via une invite de commande.
+To decrypt rootfs or other components you have to get keys from https://www.theiphonewiki.com/wiki/Firmware_Keys.
 
-### Decryptage de rootfs
+You have to enter the IPSW filename (ex : iPhone5,4_8.4.1_12H321_Restore.ipsw).
+The program will ask you to add the keys grabed from iphonewiki (only one for the rootfs).
 
-Pour décrypter les rootfs il suffit de télécharger le fichier IPSW à la racine du dossier.
-Il faut bien sur avoir la clé des rootfs pour le firmware disponible sur 
-https://www.theiphonewiki.com/wiki/Firmware_Keys
+Then, the tool will decompress you'll have to add the rootgs name
+Next you have specify the name of the file containing rootfs (ex 058-24465-023.dmg).
+In the IPSW file, there is three dmg files, that of rootfs is heaviest.
 
-Vous entrez le nom du fichier IPSW (ex : iPhone5,4_8.4.1_12H321_Restore.ipsw).
-Le programme vous demande ensuite d'entrer la clé des rootfs que vous avez au préalable obtenue.
+Then the program is going to work automaticaly.
 
-Le programme va ensuite decompresser le firmware dans le dossier IPSW.
-Ensuite vous devrez indiquer le fichier de type dmg contenant les rootfs (ex : 058-24465-023.dmg).
-Dans le dossier IPSW, il y aura 3 fichiers dmg, celui des rootfs est le plus lourd.
+If you want to modify rootfs (ex Setup.app -ASR will not accept the feat without BootROM firmware) you can use TransMac.
 
-Le programme va ensuite travailler tout seul.
+### Encryption of rootfs and creating a Custom fimware
 
-Si vous souhaitez modifier les rootfs (ex : supprimer setup.app -ASR n'acceptera pas le firmware sans exploit BootROM) vous pouvez utiliser TransMac.
+You can now create your own Custom fimware.
+Downgrades are already impossible without SHSHs blobs, on devices that do not have low level exploits.
+Is this fonction useless ?
+Yes, but it can still be used.
 
-###Encryptage des rootfs et création d'un Custom Fimware
+#Other components
 
-Vous pouvez maintenant créer votre propre Custom Fimware.
-Downgrade toujours impossible sans SHSHs, sur les appareils qui n'ont pas d'exploit BootROM.
-Donc cette fonction est inutile ? 
-Oui, mais ça peut toujours servir.
+To decrypt other firmware components like kernelcache or iBoot, you have to grab the keys from theiphonewiki
+The first one to add is the largest, and the second one is the iv key (the smallest)
 
-###Decryptage du kernelcache
+## TODO
 
-Pour decrypter le kernelcache il faut que vous le copiez à la racine du dossier puis vous executez le programme.
-Vous devrez entrer le nom du fichier (ex : kernelcache.release.n49).
-Vous entrez ensuite la clé pour le kernelcache disponible aussi sur theiphonewiki.com.
-Puis vous entrez la clé IV disponible sur le même site.
+- Add a version for GNU/Linux and OS X
+- Clean my code
 
-Le programme va ensuite decrypter automatiquement
+## Credits
 
-Vous pourrez ensuite faire ce que vous voulez avec.
+Thank you to my Jam Elrhk Elro (@Elro74) for his Liberati0n script and help for dev.
+Developed by Mathieu Hautebas (matteyeux)
 
-##TODO
+For this tool I used:
 
-- Ajouter une version pour GNU/Linux et OS X
-- Rendre Open Source mon code
-- Cleaner mon code
-- Traduire en anglais
-- Rendre le programme plus simple d'utilisation
+- xpwn developed by Planetbeing https://github.com/planetbeing/xpwn
+- dmg.exe (No idea how I got it, if you know where is the source code, contact me).
+- 7zip.exe (developed by Igor Pavlov)
 
-
-##Credits
-
-Merci à Jam Elrhk Elro (@Elro74) pour son script Liberati0n et son aide pour le dev.
-Developpé par Mathieu Hautebas (@matteyeux)
-
-Pour ce petit outil j'ai utilisé :
-
-- xpwn developpé par Planetbeing https://github.com/planetbeing/xpwn
-- dmg.exe (Aucune idée de comment je l'ai eu).
-- 7zip.exe (developpé par Igor Pavlov)
-
-Pour plus d'informations contactez-moi sur Twitter : matteyeux.
+For more information contact me on Twitter: matteyeux
