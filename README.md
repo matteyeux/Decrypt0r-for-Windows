@@ -37,7 +37,7 @@ The first one to add is the largest, and the second one is the iv key (the small
 ## Credits
 
 Thank you to my friend Jam Elrhk Elro ([@Elro74](https://twitter.com/Elro74)) for his Liberati0n script and help for dev. <br>
-Developed by Mathieu Hautebas (matteyeux) <br>
+Developed by Mathieu Hautebas ([@matteyeux](https://twitter.com/matteyeux)) <br>
 
 For this tool I used: <br>
 
