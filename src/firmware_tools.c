@@ -34,6 +34,7 @@ int rootfs()
 	char choice[10];
 	char rootfs[80];
 	char buildCommand[1024];
+	char buildCommand2[1024];
 	char key[80];
 	char keyiv[80];
 	char decrypt[256];
@@ -62,6 +63,8 @@ int rootfs()
 	if (stricmp(choice, "yes")==0 || stricmp(choice, "1")==0)
 	{
 		printf("Building rootfs...\n");
+		sprintf(buildCommand2, "%s", rootfs);
+		remove(buildCommand2);
 		sprintf(buildCommand,"..\\bin\\dmg.exe build rootfs_decrypt.dmg %s", rootfs);
 		system(buildCommand);
 
