@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "firmware_tools.h"
 
 int main(int argc, char const *argv[])
 {
 	int choice;
 	
-	system("cls");
 	ipswDownloader();
-	system("cls");
+
 	printf("Which file you want to decrypt ?\n");
 	printf(" 1) Root Filesystem\n");
 	printf(" 2) Update Ramdisk\n");
@@ -29,27 +29,27 @@ int main(int argc, char const *argv[])
 	printf("17) RecoveryMode\n");
 	printf("18) Print manifest\n");
 	printf("Command : ");
-	scanf("%d", &choice);
+	choice = fgetn();
 
 	switch (choice)
 	{
 		case 1 : rootfs(); break;
 		case 2 : updateRamdisk(); break;
 		case 3 : restoreRamdisk(); break;
-		case 4 : appleLogo(); break;
-		case 5 : batteryCharging0(); break; 
-		case 6 : batteryCharging1(); break;
-		case 7 : batteryFull(); break;
-		case 8 : batteryLow0(); break;
-		case 9 : batteryLow1(); break;
-		case 10 : deviceTree(); break;
-		case 11 : glyphPlugin(); break;
-		case 12 : iBEC(); break;
-		case 13 : iBoot(); break;
-		case 14 : iBSS(); break;
-		case 15 : kernelcache(); break;
-		case 16 : LLB(); break;
-		case 17 : recoveryMode(); break;
+		case 4 : IMG3(); break;
+		case 5 : IMG3(); break; 
+		case 6 : IMG3(); break;
+		case 7 : IMG3(); break;
+		case 8 : IMG3(); break;
+		case 9 : IMG3();; break;
+		case 10 : IMG3(); break;
+		case 11 : IMG3(); break;
+		case 12 : IMG3(); break;
+		case 13 : IMG3(); break;
+		case 14 : IMG3(); break;
+		case 15 : IMG3(); break;
+		case 16 : IMG3(); break;
+		case 17 : IMG3(); break;
 		case 18 : manifest(); break;
 		default : printf("No option available yet\n"); 
 	}	

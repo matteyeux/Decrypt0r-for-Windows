@@ -5,23 +5,15 @@
 *Outil developpé par Mathieu Hautebas.
 */
 
-int unziper(); //Ne pas ajouter à switch
-int ipswDownloader(); //Ne pas ajouter à switch
+int unziper();
+int ipswDownloader(); 
 int rootfs();
 int updateRamdisk();
 int restoreRamdisk();
-int appleLogo();
-int batteryCharging0(); 
-int batteryCharging1();
-int batteryFull();
-int batteryLow0();
-int batteryLow1();
-int deviceTree();
-int glyphPlugin();
-int iBEC();
-int iBoot();
-int iBSS();
-int kernelcache();
-int LLB();
-int recoveryMode();
+int IMG3();
 int manifest();
+
+void nBuffer();
+int fget(char *chain, int sizee);
+int fgetn();
+float fgetf();
