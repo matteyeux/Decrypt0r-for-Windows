@@ -12,8 +12,8 @@ int updateRamdisk();
 int restoreRamdisk();
 int IMG3();
 int manifest();
-
-void nBuffer();
 int fget(char *chain, int sizee);
 int fgetn();
+void nBuffer();
 float fgetf();
+
