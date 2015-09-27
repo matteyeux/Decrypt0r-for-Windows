@@ -54,7 +54,7 @@ int rootfs()
 	system(decrypt);
 
 	printf("Decrypting finished\n");
-	system("PAUSE");
+	sleep(2);
 
 	printf("Do you want to reencrypt the firmware ? \n");
 	printf("1) YES\n");
@@ -76,7 +76,7 @@ int rootfs()
 	}
 	else if(strcmp(choice, "no")==0 || strcmp(choice, "2")==0)
 	{
-		printf("\n"); //normal
+		return EXIT_SUCCESS;
 	}
 
 	return 0;
@@ -158,7 +158,6 @@ int IMG3()
 
 	printf("%s.dec copied at the folder's root\n", name);
 
-	return 0;
 }
 
 int manifest()
