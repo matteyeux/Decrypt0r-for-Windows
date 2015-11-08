@@ -11,6 +11,7 @@ int rootfs();
 int updateRamdisk();
 int restoreRamdisk();
 int IMG3();
+int DFU_file();
 int manifest();
 int fget(char *chain, int sizee);
 int fgetn();

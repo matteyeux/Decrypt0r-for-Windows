@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 	{		
 
 		ipswDownloader();
-	
+		system("cls");
 		printf("Which file you want to decrypt ?\n");
 		printf(" 1) Root Filesystem\n");
 		printf(" 2) Update Ramdisk\n");
@@ -48,9 +48,9 @@ int main(int argc, char const *argv[])
 			case 9 : IMG3(); break;
 			case 10 : IMG3(); break;
 			case 11 : IMG3(); break;
-			case 12 : IMG3(); break;
+			case 12 : DFU_file(); break;
 			case 13 : IMG3(); break;
-			case 14 : IMG3(); break;
+			case 14 : DFU_file(); break;
 			case 15 : IMG3(); break;
 			case 16 : IMG3(); break;
 			case 17 : IMG3(); break;
