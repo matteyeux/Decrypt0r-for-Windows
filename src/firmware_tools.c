@@ -42,13 +42,18 @@ int rootfs()
 	
 	unziper();
 
-	printf("Enter the firmware key : ");
-	fget(key, 80);
-
-
 	printf("Entrer rootfs name : ");
 	fget(rootfs, 80);
 	chdir("IPSW");
+
+	printf("Enter the firmware key : ");
+	fget(key, 80);
+
+	if (strlen(key) != 64)
+	{
+		printf("Bad key\n");
+		return 2;
+	}
 	
 	sprintf(decrypt, "..\\bin\\dmg.exe extract %s rootfs_decrypt.dmg -k %s", rootfs, key); 
 	system(decrypt);
@@ -82,7 +87,7 @@ int rootfs()
 	return 0;
 }
 
-int updateRamdisk()
+int Ramdisk()
 {
 	char name[120];
 	char buildCommand[1024];
@@ -91,40 +96,26 @@ int updateRamdisk()
 	
 	unziper();
 
-	printf("Enter the Update Ramdisk name : ");
+	printf("Enter the Ramdisk name : ");
 	fget(name, 120);
 
-	printf("Enter key for Update Ramdisk : ");
+	printf("Enter key for Ramdisk : ");
 	fget(key, 80);
+
+	if (strlen(key) != 64)
+	{
+		printf("Bad key\n");
+		return 2;
+	}
 
 	printf("Enter the IV key for the Update Ramdisk : ");
 	fget(keyiv, 80);
 
-	sprintf(buildCommand, "bin\\xpwntool IPSW\\%s %s.dec -k %s -iv %s ", name, name, key, keyiv);
-	system(buildCommand);
-
-	printf("%s.dec copied at the folder's root\n", name);
-
-	return 0;
-}
-
-int restoreRamdisk()
-{
-	char name[120];
-	char buildCommand[1024];
-	char key[80];
-	char keyiv[80];
-
-	unziper();
-
-	printf("Enter the Restore Ramdisk name : ");
-	fget(name, 120);
-
-	printf("Enter key for Restore Ramdisk : ");
-	fget(key, 80);
-
-	printf("Enter the IV key for the Restore Ramdisk : ");
-	fget(keyiv, 80);
+	if (strlen(keyiv) != 32)
+	{
+		printf("Bad key\n");
+		return 2;
+	}
 
 	sprintf(buildCommand, "bin\\xpwntool IPSW\\%s %s.dec -k %s -iv %s ", name, name, key, keyiv);
 	system(buildCommand);
@@ -150,8 +141,20 @@ int IMG3()
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
 
+	if (strlen(key) != 64)
+	{
+		printf("Bad key\n");
+		return 2;
+	}
+
 	printf("Enter the key IV for %s: ", name);
 	fget(keyiv, 80);
+
+	if (strlen(keyiv) != 32)
+	{
+		printf("Bad key\n");
+		return 2;
+	}
 
 	sprintf(buildCommand, "bin\\xpwntool IPSW\\Firmware\\all_flash\\all_flash.n49ap.production\\%s %s.dec -k %s -iv %s", name, name, key, keyiv);
 	system(buildCommand);

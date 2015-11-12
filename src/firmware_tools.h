@@ -8,8 +8,7 @@
 int unziper();
 int ipswDownloader(); 
 int rootfs();
-int updateRamdisk();
-int restoreRamdisk();
+int Ramdisk();
 int IMG3();
 int DFU_file();
 int manifest();

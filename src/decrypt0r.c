@@ -38,8 +38,8 @@ int main(int argc, char const *argv[])
 		switch (choice)
 		{
 			case 1 : rootfs(); break;
-			case 2 : updateRamdisk(); break;
-			case 3 : restoreRamdisk(); break;
+			case 2 : Ramdisk(); break;
+			case 3 : Ramdisk(); break;
 			case 4 : IMG3(); break;
 			case 5 : IMG3(); break; 
 			case 6 : IMG3(); break;
