@@ -1,6 +1,10 @@
+/*
+firmware_tools.c
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <curl/curl.h>
 
 int unziper ()
 {	
@@ -30,6 +34,51 @@ int unziper ()
 	return 0;
 }
 
+int ipswDownloader()
+{
+	char model[10];
+	char choice1[10];
+	char version[7];
+	char link[1024];
+	char firmware [80];
+
+	printf("Download firmware ?\n");
+	printf("1) YES\n");
+	printf("2) NO\n");
+	fget(choice1, 10);
+	if (strcmp(choice1, "yes")==0 || strcmp(choice1, "1")==0)
+	{
+		printf("Model : ");
+		fget(model, 10);
+		printf("Version : ");
+		fget(version, 7);
+
+		printf("The firmware will be automaticaly extracted\n");
+
+		printf("Downloading IPSW, please wait...\n");
+		
+		sprintf(link,"http://api.ipsw.me/v2/%s/%s/url/dl",model,version);
+		CURL *session = curl_easy_init(); 
+		curl_easy_setopt(session, CURLOPT_URL, link);
+		FILE * fp = fopen("firmware.ipsw", "w"); 
+		curl_easy_setopt(session,  CURLOPT_WRITEDATA, fp); 
+		curl_easy_setopt(session,  CURLOPT_WRITEFUNCTION, fwrite);
+		curl_easy_perform(session);
+		fclose(fp);
+		curl_easy_cleanup(session);
+
+		printf("Extracting firmware in the IPSW folder...\n");
+		system("bin\\7z.exe x -oIPSW firmware.ipsw");
+
+		return 0;
+	}
+	else if(strcmp(choice1, "no")==0 || strcmp(choice1, "2")==0)
+	{
+		printf("\n");
+	}
+	return 0;
+}
+
 int rootfs()
 {
 	char choice[10];
@@ -49,7 +98,7 @@ int rootfs()
 	printf("Enter the firmware key : ");
 	fget(key, 80);
 
-	if (strlen(key) != 64)
+	if (strlen(key) != 72)
 	{
 		printf("Bad key\n");
 		return 2;
@@ -196,41 +245,6 @@ int manifest()
 
 	system("cat IPSW\\Firmware\\all_flash\\all_flash.n49ap.production\\manifest");
 
-	return 0;
-}
-
-int ipswDownloader()
-{
-	char model[80];
-	char choice1[10];
-	char BuildID[80];
-	char buildCommand[1024];
-	char buildCommand2[1024];
-	char firmware [80];
-
-	printf("Download firmware ?\n");
-	printf("1) YES\n");
-	printf("2) NO\n");
-	fget(choice1, 10);
-	if (strcmp(choice1, "yes")==0 || strcmp(choice1, "1")==0)
-	{
-		printf("iPhone model : ");
-		fget(model, 80);
-
-		printf("BuildID for the version: ");
-		fget(BuildID, 80);
-
-		sprintf(buildCommand,"curl -A --silent http://api.ipsw.me/v2/%s/%s/url/ >url.txt", model, BuildID);
-		system(buildCommand);
-		printf("Downloading IPSW file...\n");
-		system("wget -i url.txt");
-		remove("url.txt");
-		return 0;
-	}
-	else if(strcmp(choice1, "no")==0 || strcmp(choice1, "2")==0)
-	{
-		printf("\n");
-	}
 	return 0;
 }
 

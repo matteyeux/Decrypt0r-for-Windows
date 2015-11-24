@@ -1,10 +1,6 @@
 /*
-*firmware_tools.h
-*Dans ce dossier c'est la que toutes les fonctions sont déclarées.
-*Le code de toutes les fonctions est dans firmware_tools.c
-*Outil developpé par Mathieu Hautebas.
+firmware_tools.h
 */
-
 int unziper();
 int ipswDownloader(); 
 int rootfs();
