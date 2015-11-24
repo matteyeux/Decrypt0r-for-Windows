@@ -15,7 +15,6 @@ int main(int argc, char const *argv[])
 	{		
 
 		ipswDownloader();
-		system("cls");
 		printf("Which file you want to decrypt ?\n");
 		printf(" 1) Root Filesystem\n");
 		printf(" 2) Ramdisk\n");
