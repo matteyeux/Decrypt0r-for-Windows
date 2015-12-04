@@ -5,6 +5,8 @@ Decrypt0r is a utility which help you to decrypt all the iOS firmware components
 
 ###Rootfs decrypting
 
+**Install [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) if you want to download IPSW files**
+
 To decrypt rootfs or other components you have to get keys from https://www.theiphonewiki.com/wiki/Firmware_Keys. <br>
 
 You have to enter the IPSW filename (ex : iPhone5,4_8.4.1_12H321_Restore.ipsw). <br>
