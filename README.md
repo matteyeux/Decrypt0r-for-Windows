@@ -1,25 +1,30 @@
 #Decrypt0r
 WINDOWS ONLY
-You should install Cygwin to build and run it 
+You should install [Cygwin](https://www.cygwin.com/) to build and run it 
 Decrypt0r is a utility which help you to decrypt all the iOS firmware components. <br>
 
+```
+Which file you want to decrypt ?  
+ 1) Root Filesystem               
+ 2) Ramdisk                       
+ 3) IMG3 File                     
+ 4) DFU File                      
+ 5) Kernelcache                   
+ 6) Print manifest                
+Command :
+```
 
 ###Rootfs decrypting
 
-**Install [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) if you want to download IPSW files**
+To decrypt rootfs or other components you have to grab keys from https://www.theiphonewiki.com/wiki/Firmware_Keys. <br>
+If you choose to download directly from Decrypt0r, it will decompress automaticaly the firmware in a folder named "IPSW". <br>
 
-To decrypt rootfs or other components you have to get keys from https://www.theiphonewiki.com/wiki/Firmware_Keys. <br>
-
-You have to enter the IPSW filename (ex : iPhone5,4_8.4.1_12H321_Restore.ipsw). <br>
-The program will ask you to add the keys grabed from iphonewiki (only one for the rootfs). <br>
-
-Then, the tool will decompress you'll have to add the rootgs name <br>
 Next you have specify the name of the file containing rootfs (ex 058-24465-023.dmg). <br>
 In the IPSW file, there is three dmg files, that of rootfs is heaviest. <br>
 
 Then the program is going to work automaticaly. <br>
 
-If you want to modify rootfs (ex Setup.app -ASR will not accept the feat without BootROM firmware) you can use TransMac. <br>
+If you want to modify rootfs you can use TransMac. <br>
 
 ### Encryption of rootfs and creating a Custom fimware
 
