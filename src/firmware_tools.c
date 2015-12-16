@@ -6,8 +6,8 @@
 int unziper()
 {	
 	char choice[10];
-	char firmware[80];
-	char buildCommand[120];
+	char firmware[1024];
+	char buildCommand[1024];
 
 	printf("\n\nDecompress firmware ?\n");
 	printf("1) YES\n");
@@ -16,8 +16,8 @@ int unziper()
 
 	if (strcmp(choice, "yes")==0 || strcmp(choice, "1")==0)
 	{
-		printf("Firmware to decompress : ");
-		fget(firmware, 80);
+		printf("Drag the ipsw here : ");
+		fget(firmware, 1024);
 
 		printf("Extracting firmware in the IPSW folder...\n");
 		sprintf(buildCommand, "bin\\7z.exe x -oIPSW %s", firmware); 
@@ -55,12 +55,10 @@ int ipswDownloader()
 
 		printf("Downloading IPSW, please wait...\n");
 		
-		sprintf(link,"wget http://api.ipsw.me/v2/%s/%s/url/dl",model,version);
+		sprintf(link,"bin\\wget.exe http://api.ipsw.me/v2/%s/%s/url/dl -O firmware.ipsw",model,version);
 		system(link);
-		system("rename *.ipsw firmware.ipsw");
 		system("bin\\7z.exe x -oIPSW firmware.ipsw");
 		
-
 		return 0;
 	}
 	else if(strcmp(choice1, "no")==0 || strcmp(choice1, "2")==0)
@@ -173,19 +171,27 @@ int IMG3()
 	char key[80];
 	char keyiv[80];
 	char boardID[10];
+	char img3_dir[1024];
 
 	unziper();
 
-	printf("Board ID (e.g n49 for iPhone5,4) : ");
+	printf("Board ID (e.g n49ap for iPhone5,4) : ");
 	fget(boardID, 10);
 
 	printf("Enter the IMG3 filename : ");
 	fget(name, 120);
 
+	sprintf(img3_dir,"IPSW/Firmware/all_flash/all_flash.%s.production", boardID);
+	chdir(img3_dir);
+
+	rename(name, "target");
+
+	system("ls");
+
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
 
-	if (strlen(key) != 64)
+	if (strlen(key) != 64 || strlen(key) != 32)
 	{
 		printf("Bad key\n");
 		return 2;
@@ -200,10 +206,10 @@ int IMG3()
 		return 2;
 	}
 
-	sprintf(buildCommand, "bin\\xpwntool IPSW\\Firmware\\all_flash\\all_flash.%sap.production\\%s %s.dec -k %s -iv %s", boardID,name, name, key, keyiv);
+	sprintf(buildCommand, "..\\..\\..\\..\\bin\\xpwntool.exe target %s.dec -k %s -iv %s",name, key, keyiv);
 	system(buildCommand);
-
-	printf("%s.dec copied at the folder's root\n", name);
+	rename("target", name);
+	printf("%s.dec created at IPSW/Firmware/all_flash/all_flash.%s.production\n", name, boardID);
 
 	return 0;
 }
@@ -214,11 +220,18 @@ int DFU_file()
 	char buildCommand[1024];
 	char key[80];
 	char keyiv[80];
+	char dfu_dir[80];
+
 
 	unziper();
 	
+	sprintf(dfu_dir, "IPSW/Firmware/dfu/");
+	chdir(dfu_dir);
+	
 	printf("Enter the name of the iBEC/iBSS : ");
-	fget(name, 120); 
+	fget(name, 120);
+	rename(name, "target");
+
 
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
@@ -226,10 +239,12 @@ int DFU_file()
 	printf("Enter the key IV for %s: ", name);
 	fget(keyiv, 80);
 
-	sprintf(buildCommand, "bin\\xpwntool IPSW\\Firmware\\dfu\\%s %s.dec -k %s -iv %s", name, name, key, keyiv);
+	sprintf(buildCommand, "..\\..\\..\\bin\\xpwntool.exe target %s.dec -k %s -iv %s", name, key, keyiv);
 	system(buildCommand);
 
-	printf("%s.dec copied at the folder's root\n", name);
+	rename("target", name);
+
+	printf("%s.dec created at IPSW/Firmware/dfu\n", name);
 }
 
 int kernelcache()
@@ -282,9 +297,9 @@ int manifest()
 
 	unziper();
 
-	printf("Board ID (e.g n49 for iPhone5,4) : ");
+	printf("Board ID (e.g n49ap for iPhone5,4) : ");
 	fget(boardID, 10);
-	sprintf(buildCommand,"cat IPSW\\Firmware\\all_flash\\all_flash.%sap.production\\manifest", boardID);
+	sprintf(buildCommand,"cat IPSW\\Firmware\\all_flash\\all_flash.%s.production\\manifest", boardID);
 	system(buildCommand);
 	return 0;
 }
