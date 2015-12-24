@@ -25,7 +25,7 @@ int unziper()
 	}
 	else if (strcmp(choice, "no")== 0 || strcmp(choice, "2")==0 )
 	{
-		printf("");
+		//HAX
 	}
 	
 	return 0;
@@ -125,7 +125,7 @@ int rootfs()
 	return 0;
 }
 
-int Ramdisk()
+int Ramdisk() //Not a priority yet I'll work on after Christmas
 {
 	char name[120];
 	char buildCommand[1024];
@@ -140,7 +140,7 @@ int Ramdisk()
 	printf("Enter key for Ramdisk : ");
 	fget(key, 80);
 
-	if (strlen(key) != 64)
+	if (strlen(key) != 64 || strlen(key) != 32)	
 	{
 		printf("Bad key\n");
 		return 2;
@@ -165,7 +165,6 @@ int Ramdisk()
 
 int IMG3()
 {	
-
 	char name[120];
 	char buildCommand[1024];
 	char key[80];
@@ -236,8 +235,20 @@ int DFU_file()
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
 
+	if (strlen(key) != 64 || strlen(key) != 32)
+	{
+		printf("Bad key\n");
+		return 2;
+	}
+
 	printf("Enter the key IV for %s: ", name);
 	fget(keyiv, 80);
+
+	if (strlen(keyiv) != 32)
+	{
+		printf("Bad key\n");
+		return 2;
+	}
 
 	sprintf(buildCommand, "..\\..\\..\\bin\\xpwntool.exe target %s.dec -k %s -iv %s", name, key, keyiv);
 	system(buildCommand);
@@ -264,7 +275,7 @@ int kernelcache()
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
 
-	if (strlen(key) != 64)
+	if (strlen(key) != 64 || strlen(key) != 32)
 	{
 		printf("Bad key\n");
 		return 2;
