@@ -1,6 +1,6 @@
 #Decrypt0r
 WINDOWS ONLY
-You should install [Cygwin](https://www.cygwin.com/) to build and run it 
+You should install [Cygwin](https://www.cygwin.com/) to build and run it.<br> 
 Decrypt0r is a utility which help you to decrypt all the iOS firmware components. <br>
 
 ```
