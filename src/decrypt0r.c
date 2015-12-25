@@ -10,8 +10,6 @@ int main(int argc, char const *argv[])
 {
 	int choice;
 	char loop[5];
-
-
 	system("cls");
 	ipswDownloader();
 	system("cls");
@@ -36,6 +34,6 @@ int main(int argc, char const *argv[])
 		case 6 : manifest(); break;
 		default : printf("No option available yet\n"); 
 	}
-	
+
 	return 0;	
 }
