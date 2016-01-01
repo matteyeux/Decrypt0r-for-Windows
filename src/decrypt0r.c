@@ -35,5 +35,8 @@ int main(int argc, char const *argv[])
 		default : printf("No option available yet\n"); 
 	}
 
+	printf("Press [ENTER] to quit the tool\n"); 
+	getchar();
+
 	return 0;	
 }

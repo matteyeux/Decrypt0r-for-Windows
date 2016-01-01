@@ -1,6 +1,6 @@
 #Decrypt0r
 WINDOWS ONLY
-You should install [Cygwin](https://www.cygwin.com/) to build and run it.<br> 
+You should install [Cygwin](https://www.cygwin.com/) to build it or check [here](https://github.com/matteyeux/Decrypt0r-for-Windows/releases/download/Decrypt0r/decrypt0r.exe) :).<br> 
 Decrypt0r is a utility which help you to decrypt all the iOS firmware components. <br>
 
 ```
@@ -15,6 +15,8 @@ Command :
 ```
 
 ###Rootfs decrypting
+
+Install wget via [this setup](http://downloads.sourceforge.net/gnuwin32/wget-1.11.4-1-setup.exe) to download IPSWs 
 
 To decrypt rootfs or other components you have to grab keys from https://www.theiphonewiki.com/wiki/Firmware_Keys. <br>
 If you choose to download directly from Decrypt0r, it will decompress automaticaly the firmware in a folder named "IPSW". <br>

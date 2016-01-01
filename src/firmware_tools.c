@@ -55,7 +55,8 @@ int ipswDownloader()
 
 		printf("Downloading IPSW, please wait...\n");
 		
-		sprintf(link,"bin\\wget.exe http://api.ipsw.me/v2/%s/%s/url/dl -O firmware.ipsw",model,version);
+		sprintf(link,"wget http://api.ipsw.me/v2/%s/%s/url/dl -O firmware.ipsw",model,version);
+		/*sprintf(link,"bin\\wget.exe http://api.ipsw.me/v2/%s/%s/url/dl -O firmware.ipsw",model,version);*/
 		system(link);
 		system("bin\\7z.exe x -oIPSW firmware.ipsw");
 		
@@ -86,12 +87,6 @@ int rootfs()
 
 	printf("Enter the firmware key : ");
 	fget(key, 80);
-
-	if (strlen(key) != 72)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
 	
 	sprintf(decrypt, "..\\bin\\dmg.exe extract %s rootfs_decrypt.dmg -k %s", rootfs, key); 
 	system(decrypt);
@@ -140,20 +135,8 @@ int Ramdisk() //Not a priority yet I'll work on after Christmas
 	printf("Enter key for Ramdisk : ");
 	fget(key, 80);
 
-	if (strlen(key) != 64 || strlen(key) != 32)	
-	{
-		printf("Bad key\n");
-		return 2;
-	}
-
 	printf("Enter the IV key for the Update Ramdisk : ");
 	fget(keyiv, 80);
-
-	if (strlen(keyiv) != 32)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
 
 	sprintf(buildCommand, "bin\\xpwntool IPSW\\%s %s.dec -k %s -iv %s ", name, name, key, keyiv);
 	system(buildCommand);
@@ -185,25 +168,12 @@ int IMG3()
 
 	rename(name, "target");
 
-	system("ls");
-
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
 
-	if (strlen(key) != 64 || strlen(key) != 32)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
 
 	printf("Enter the key IV for %s: ", name);
 	fget(keyiv, 80);
-
-	if (strlen(keyiv) != 32)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
 
 	sprintf(buildCommand, "..\\..\\..\\..\\bin\\xpwntool.exe target %s.dec -k %s -iv %s",name, key, keyiv);
 	system(buildCommand);
@@ -235,20 +205,8 @@ int DFU_file()
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
 
-	if (strlen(key) != 64 || strlen(key) != 32)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
-
 	printf("Enter the key IV for %s: ", name);
 	fget(keyiv, 80);
-
-	if (strlen(keyiv) != 32)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
 
 	sprintf(buildCommand, "..\\..\\..\\bin\\xpwntool.exe target %s.dec -k %s -iv %s", name, key, keyiv);
 	system(buildCommand);
@@ -256,6 +214,8 @@ int DFU_file()
 	rename("target", name);
 
 	printf("%s.dec created at IPSW/Firmware/dfu\n", name);
+
+	return 0;
 }
 
 int kernelcache()
@@ -275,20 +235,8 @@ int kernelcache()
 	printf("Enter the key for %s: ", name);
 	fget(key, 80);
 
-	if (strlen(key) != 64 || strlen(key) != 32)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
-
 	printf("Enter the key IV for %s: ", name);
 	fget(keyiv, 80);
-
-	if (strlen(keyiv) != 32)
-	{
-		printf("Bad key\n");
-		return 2;
-	}
 
 	sprintf(buildCommand, "bin\\xpwntool IPSW\\%s %s.dec -k %s -iv %s",name, name, key, keyiv);
 	system(buildCommand);
@@ -312,6 +260,7 @@ int manifest()
 	fget(boardID, 10);
 	sprintf(buildCommand,"cat IPSW\\Firmware\\all_flash\\all_flash.%s.production\\manifest", boardID);
 	system(buildCommand);
+
 	return 0;
 }
 
