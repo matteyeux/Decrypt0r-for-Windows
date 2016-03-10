@@ -13,3 +13,4 @@ int fget(char *chain, int sizee);
 int fgetn();
 void nBuffer();
 float fgetf();
+int get_keybags();
