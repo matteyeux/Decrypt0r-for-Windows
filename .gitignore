@@ -3,3 +3,4 @@
 IPSW
 *.dec
 *.ipsw
+src/*.o

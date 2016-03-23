@@ -3,6 +3,18 @@
 #include <stdio.h>
 #include <string.h>
 
+void swag_logo()
+{
+	system("cls");
+    printf(" ____                             _    ___\n");
+    printf("|  _ \\  ___  ___ _ __ _   _ _ __ | |_ / _ \\ _ __\n");
+    printf("| | | |/ _ \\/ __| '__| | | | '_ \\| __| | | | '__|\n");
+    printf("| |_| |  __/ (__| |  | |_| | |_) | |_| |_| | |\n");
+    printf("|____/ \\___|\\___|_|   \\__, | .__/ \\__|\\___/|_|\n");
+    printf("                      |___/|_|\n\n");
+}
+
+
 int unziper()
 {	
 	char choice[10];

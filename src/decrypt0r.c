@@ -10,9 +10,9 @@ int main(int argc, char const *argv[])
 {
 	int choice;
 	char loop[5];
-	system("cls");
+	swag_logo();
 	ipswDownloader();
-	system("cls");
+	swag_logo();
 	printf("Which file you want to decrypt ?\n");
 	printf(" 1) Root Filesystem\n");
 	printf(" 2) Ramdisk\n");
@@ -27,13 +27,13 @@ int main(int argc, char const *argv[])
 
 	switch (choice)
 	{
-		case 1 : rootfs(); break;
-		case 2 : Ramdisk(); break;
-		case 3 : IMG3(); break;
-		case 4 : DFU_file(); break;
-		case 5 : kernelcache(); break;
-		case 6 : get_keybags(); break;
-		case 7 : manifest(); break;
+		case 1 : swag_logo(); rootfs(); break;
+		case 2 : swag_logo(); Ramdisk(); break;
+		case 3 : swag_logo(); IMG3(); break;
+		case 4 : swag_logo(); DFU_file(); break;
+		case 5 : swag_logo(); kernelcache(); break;
+		case 6 : swag_logo(); get_keybags(); break;
+		case 7 : swag_logo(); manifest(); break;
 		default : printf("No option available yet\n"); 
 	}
 
