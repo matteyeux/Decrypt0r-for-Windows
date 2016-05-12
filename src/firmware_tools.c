@@ -37,7 +37,7 @@ int unziper()
 	}
 	else if (strcmp(choice, "no")== 0 || strcmp(choice, "2")==0 )
 	{
-		//HAX
+		//HAXX
 	}
 	
 	return 0;

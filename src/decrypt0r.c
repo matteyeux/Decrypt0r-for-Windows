@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 	printf(" 6) Grab Keybags\n");
 	printf(" 7) Print manifest\n");
 
-	printf("Command : ");
+	printf("> ");
 	choice = fgetn();
 
 	switch (choice)
