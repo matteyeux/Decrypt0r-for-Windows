@@ -16,8 +16,6 @@ Command :
 
 ###Rootfs decrypting
 
-Install wget via [this setup](http://downloads.sourceforge.net/gnuwin32/wget-1.11.4-1-setup.exe) to download IPSWs 
-
 To decrypt rootfs or other components you have to grab keys from https://www.theiphonewiki.com/wiki/Firmware_Keys. <br>
 If you choose to download directly from Decrypt0r, it will decompress automaticaly the firmware in a folder named "IPSW". <br>
 
@@ -52,8 +50,7 @@ Thank you to [Callum Jones](https://twitter.com/icj_) for his awesome website ip
 
 For this tool I used: <br>
 
-- xpwn developed by Planetbeing https://github.com/planetbeing/xpwn <br>
-- dmg.exe (No idea how I got it, if you know where is the source code, contact me). <br>
+- Xpwn developed by [Planetbeing](https://github.com/planetbeing/xpwn) <br>
 - 7zip.exe (developed by Igor Pavlov) <br>
 
 For more information contact me on Twitter: [@matteyeux](https://twitter.com/matteyeux) <br>

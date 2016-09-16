@@ -15,3 +15,4 @@ int fgetn();
 void nBuffer();
 float fgetf();
 int get_keybags();
+int check4im4p (char *name);
