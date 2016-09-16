@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <windows.h>
 
 void swag_logo()
 {
