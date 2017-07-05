@@ -1,4 +1,4 @@
-#Decrypt0r
+# Decrypt0r
 WINDOWS ONLY
 You should install [Cygwin](https://www.cygwin.com/) to build it or check [here](https://github.com/matteyeux/Decrypt0r-for-Windows/releases/download/Decrypt0r/decrypt0r.exe) :).<br> 
 Decrypt0r is a utility which help you to decrypt all the iOS firmware components. <br>
@@ -14,7 +14,7 @@ Which file you want to decrypt ?
 Command :
 ```
 
-###Rootfs decrypting
+### Rootfs decrypting
 
 To decrypt rootfs or other components you have to grab keys from https://www.theiphonewiki.com/wiki/Firmware_Keys. <br>
 If you choose to download directly from Decrypt0r, it will decompress automaticaly the firmware in a folder named "IPSW". <br>
@@ -33,7 +33,7 @@ Downgrades are already impossible without SHSHs blobs, on devices that do not ha
 Is this fonction useless ? <br>
 Yes, but it can still be used. <br>
 
-#Other components
+# Other components
 
 To decrypt other firmware components like kernelcache or iBoot, you have to grab the keys from theiphonewiki <br>
 The first one to add is the largest, and the second one is the iv key (the smallest) <br>
